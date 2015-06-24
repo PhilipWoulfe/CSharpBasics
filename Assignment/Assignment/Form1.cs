@@ -16,7 +16,12 @@ namespace Assignment
 
         List<String> dataList = new List<String>();
         int count = 0;
-        List<String> newList = new List<String>();
+        String[] nameArr = new String[100];
+        String[] dateArr = new String[100];
+        String[] costArr = new String[100];
+        String[] availArr = new String[100];
+ 
+
         
         public Form1()
         {
@@ -40,7 +45,9 @@ namespace Assignment
             {
                 if (isValid(date))
                 {
-                    if (listCount(dataList, course) < 10)
+                    count = 0;
+                    count = listCount(dataList, course);
+                    if (count < 10)
                     {
                         listBox1.Enabled = true;
                         // MessageBox.Show(listBox1.Items.Count.ToString());
@@ -145,21 +152,23 @@ namespace Assignment
 
         private int listCount(List<String> l, String s)
         {
-
-            
-
             foreach(var newvar in l)
-            {
-                
+            {      
                 if (newvar == s)
                 {
                     count++;
-
-                }
-                
+                }                
             }
             MessageBox.Show(count + "");
             return count;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var myForm = new Form2();
+            myForm.Show();
+        }
+
+        
     }
 }
