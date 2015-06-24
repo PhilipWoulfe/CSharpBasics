@@ -45,7 +45,7 @@ namespace Assignment
             {
                 if (isValid(date))
                 {
-                    count = 0;
+                    
                     count = listCount(dataList, course);
                     if (count < 10)
                     {
@@ -165,8 +165,8 @@ namespace Assignment
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var myForm = new Form2();
-            myForm.Show();
+            //var myForm = new Form2();
+            //myForm.Show();
         }
 
         

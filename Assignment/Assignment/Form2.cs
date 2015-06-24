@@ -84,6 +84,8 @@ namespace Assignment
         {
             ClickBut(sender, 12);
         }
+
+       
         
         private void ClickBut(object o, int i)
         {
@@ -93,14 +95,18 @@ namespace Assignment
             
             if (IsNumeric(b.Text))
             {
-                b.Text = "F";
+                b.Text = "B";
+                b.BackColor = System.Drawing.Color.Green;
             }
             else
             {
                 b.Text = i.ToString();
+                b.BackColor = System.Drawing.Color.Gray;
             }
             
         }
+
+        
 
         private static bool IsNumeric(object Expression)
         {
