@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.newCheck1 = new Assignment.NewCheck();
+            this.newCheck1 = new Assignment.Class1();
             this.SuspendLayout();
             // 
             // newCheck1

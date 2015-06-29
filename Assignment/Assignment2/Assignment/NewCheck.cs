@@ -7,16 +7,13 @@ using System.Windows.Forms;
 
 namespace Assignment
 {
-    class Class1:CheckBox
+    class NewCheck:CheckBox
     {
-        int num;
         bool check = false;
 
         public void CheckChanged(object sender, EventArgs e)
         {
             CheckBox b = (CheckBox)sender;
-
-
 
             if (IsNumeric(b.Text))
             {

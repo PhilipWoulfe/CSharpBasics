@@ -13,12 +13,12 @@ namespace Assignment
 {
     public partial class Form3 : Form
     {
-        NewCheck newCheck1;
+        Class1 newCheck1;
 
         public Form3()
         {
             InitializeComponent();
-            newCheck1 = new NewCheck();
+            newCheck1 = new Class1();
             
         }
 
