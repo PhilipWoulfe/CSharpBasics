@@ -165,8 +165,8 @@ namespace Assignment
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //var myForm = new Form2();
-            //myForm.Show();
+            var myForm = new Form2();
+            myForm.Show();
         }
 
         

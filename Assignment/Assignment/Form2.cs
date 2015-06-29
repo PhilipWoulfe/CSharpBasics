@@ -106,8 +106,6 @@ namespace Assignment
             
         }
 
-        
-
         private static bool IsNumeric(object Expression)
         {
             double retNum;

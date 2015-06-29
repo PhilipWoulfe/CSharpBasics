@@ -42,11 +42,13 @@ namespace Assignment
                     for (int i = 0; i < courseArr.Length; i++)
                     {
                         for (int j = nextDate; j < 10; j++)
-                        {
+                        {   
+                            
                             if (courseArr[i,0] != null & course == courseArr[i, 0].getName())
                             {
                                 courseArr[i, j] = new Course(course, date, price, places, i, j);
                             }
+                            
                         }
     
                     }
@@ -109,6 +111,19 @@ namespace Assignment
 
         }
 
+        /*
+        private Boolean IsTwo(int i)
+        {
+            if (i == 2)
+            {
+                return true;
+            }
+            else
+            {
+                 
+            }
+        }
+        */
         private int listCount(List<String> l, String s)
         {
             foreach (var newvar in l)
