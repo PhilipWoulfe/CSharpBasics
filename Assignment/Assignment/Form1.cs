@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Microsoft.VisualBasic;
+
 
 namespace Assignment
 {
@@ -41,8 +44,10 @@ namespace Assignment
             String date = textBox2.Text;
             String price = textBox3.Text;
 
+            // if text boxes aren't blank
             if (course != "" && date != "" && price != "")
             {
+                // if date is valid
                 if (isValid(date))
                 {
                     
@@ -85,7 +90,7 @@ namespace Assignment
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Date.", "Error");
+                    MessageBox.Show("Invalid Date", "004");
                 }
                 
             }
@@ -100,10 +105,12 @@ namespace Assignment
 
         }
 
+        /*
         private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             MessageBox.Show("Test");
         }
+         */
 
         private Boolean isValid(string num)
         {
@@ -169,6 +176,105 @@ namespace Assignment
             myForm.Show();
         }
 
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            listBox1.Enabled = false;
+            string path;
+
+            // keep looking for input while end of file name isn't .txt
+            do
+            {
+                path = Microsoft.VisualBasic.Interaction.InputBox("Prompt", "Title", "Default", -1, -1);
+            }
+            while (!path.EndsWith(".txt"));
+
+
+            try
+            { 
+                // if file already exists
+                if (File.Exists(path))
+                {
+                    MessageBox.Show("File already exists!", "Error!");
+                }
+                else
+                {
+                    // Create a file to write to. 
+                    
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+           
+                    }
+                    
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int counter = 0;
+            string line;
+            string input;
+            
+            // keep looking for input while end of file name isn't .txt
+            do
+            {
+                input = Microsoft.VisualBasic.Interaction.InputBox("Prompt", "Title", "Default", -1, -1);
+                // Error handling
+                if (!path.EndsWith(".txt"))
+                {
+                    // Write error
+                    MessageBox.Show("File incorrect format or missing or dialog cancelled!", "001");
+                }
+            }
+            while (!input.EndsWith(".txt"));
+
+            
+            try
+            {
+                // read file at loaction input
+                using (StreamReader reader = new StreamReader(input))
+                {   
+                    // while there is another line
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        // trim quotation marks
+                        line = line.Substring(1, line.Length - 2);
+
+                        // if the line number is a multiple of 4
+                        if (counter++ % 4 == 0)
+                        {
+                            // if listbox doesn't contain course name
+                            if (listBox1.Items.IndexOf(line) == -1)
+                            {
+                                listBox1.Items.Add(line);
+                                listBox1.Enabled = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                // Write error
+                MessageBox.Show("File incorrect format or missing or dialog cancelled!", "001");
+            }
+        }
+
+        private void listBox1_MouseDoubleCLick(object sender, MouseEventArgs e)
+        {
+            int index = this.listBox1.IndexFromPoint(e.Location);
+            if (index != System.Windows.Forms.ListBox.NoMatches)
+            {
+                var myForm = new Form2();
+                myForm.Show();
+            }
+        }
         
     }
 }
